@@ -91,6 +91,9 @@ return [
 		'mailchimp' => [
 			'apiKey' => null // Mailchimp API key
 		],
+		'brevo' => [
+			'apiKey' => null // Mailchimp API key
+		],
 		'buttondown' => [
 			'apiKey' => null, // Buttondown API key
 			'simpleMode' => false // Simple mode supports free plans, removes tags support

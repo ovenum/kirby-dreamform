@@ -412,7 +412,7 @@ class SubmissionPage extends BasePage
 	public function update(?array $input = null, ?string $languageCode = null, bool $validate = false): static
 	{
 		$defaultLanguage = $this->kirby()->defaultLanguage()?->code();
-		
+
 		$this->content = $this->content($defaultLanguage)->update($input);
 
 		if ($this->exists()) {

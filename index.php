@@ -25,6 +25,7 @@ DreamForm::register(
 	\tobimori\DreamForm\Actions\RedirectAction::class,
 	\tobimori\DreamForm\Actions\WebhookAction::class,
 	\tobimori\DreamForm\Actions\ButtondownAction::class,
+	\tobimori\DreamForm\Actions\BrevoAction::class,
 	\tobimori\DreamForm\Actions\MailchimpAction::class,
 	\tobimori\DreamForm\Actions\PlausibleAction::class,
 	\tobimori\DreamForm\Fields\ButtonField::class,

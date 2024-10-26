@@ -1,13 +1,13 @@
 <?php return array(
     'root' => array(
         'name' => 'tobimori/kirby-dreamform',
-        'pretty_version' => '1.5.0-rc.2',
-        'version' => '1.5.0.0-RC2',
+        'pretty_version' => '1.5.0-rc.3',
+        'version' => '1.5.0.0-RC3',
         'reference' => null,
         'type' => 'kirby-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'getkirby/composer-installer' => array(
@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'tobimori/kirby-dreamform' => array(
-            'pretty_version' => '1.5.0-rc.2',
-            'version' => '1.5.0.0-RC2',
+            'pretty_version' => '1.5.0-rc.3',
+            'version' => '1.5.0.0-RC3',
             'reference' => null,
             'type' => 'kirby-plugin',
             'install_path' => __DIR__ . '/../../',
