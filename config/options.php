@@ -19,7 +19,7 @@ return [
 	'multiStep' => true, // Enable multi-step forms
 	'storeSubmissions' => true, // Store submissions in the content folder
 	'partialSubmissions' => true, // Allow partial submissions toggle in panel (requires precognition)
-	'precognition' => true, // Enable precognition (HTMX mode only) - Requires "idiomorph" htmx extension
+	'precognition' => false, // Enable precognition (HTMX mode only) - Requires "idiomorph" htmx extension
 	'debug' => fn () => App::instance()->option('debug'),
 	'layouts' => [ // https://getkirby.com/docs/reference/panel/fields/layout#defining-your-own-layouts
 		'1/1',
