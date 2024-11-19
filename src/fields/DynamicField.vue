@@ -72,13 +72,13 @@ const currentField = computed(() =>
 	props.options.find((field) => field.id === props.value.field),
 );
 
-const staticIsInvalid = ref(props.invalid ?? true);
+const staticIsInvalid = ref(props.invalid ?? false);
 const isInvalid = computed(() => {
 	if (!props.required) {
 		return false;
 	}
 
-	if (currentType.id === "static") {
+	if (currentType.value.id === "static") {
 		return staticIsInvalid.value;
 	}
 

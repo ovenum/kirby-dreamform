@@ -117,8 +117,8 @@ return [
 							return true;
 						}
 					}
-				} elseif ($value['type'] === 'static' && !$value['value']) {
-					throw new InvalidArgumentException();
+				} elseif ($value['type'] === 'static' && $value['value']) {
+					return true;
 				}
 
 				if ($this->required()) {

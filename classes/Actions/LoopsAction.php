@@ -46,7 +46,8 @@ class LoopsAction extends Action
 							'label' => t('dreamform.actions.loops.fields.label'),
 							'type' => 'object',
 							'required' => true,
-							'fields' => static::getFieldsBlueprint()
+							'fields' => static::getFieldsBlueprint(),
+							'default' => [null]
 						]
 					]
 				]
@@ -119,7 +120,6 @@ class LoopsAction extends Action
 			'email' => [
 				'label' => t('email'),
 				'type' => 'dreamform-dynamic-field',
-				'limitType' => 'email',
 				'required' => true,
 			],
 			'firstName' => [
