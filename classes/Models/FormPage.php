@@ -13,6 +13,7 @@ use Kirby\Http\Query;
 use Kirby\Http\Response;
 use Kirby\Http\Url;
 use Kirby\Toolkit\A;
+use Kirby\Toolkit\I18n;
 use Kirby\Toolkit\Str;
 use Kirby\Uuid\Uuid;
 use tobimori\DreamForm\DreamForm;
@@ -523,6 +524,9 @@ class FormPage extends BasePage
 
 	/**
 	 * Static function to get page fields based on the API request url for use in panel blueprints
+	 *
+	 * TOOD: remove in next major version -
+	 * @deprecated use dreamform-dynamic-field instead or DreamForm::currentPage()->fields()
 	 */
 	public static function getFields(string $filterByType = null): array
 	{

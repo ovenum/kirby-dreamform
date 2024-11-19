@@ -56,6 +56,9 @@ const labelInputs = ref([]);
 const valueInputs = ref([]);
 
 const focusEndOf = (el) => {
+	console.log(labelInputs.value, valueInputs.value);
+	if (!el) return;
+
 	el.focus();
 	const range = document.createRange();
 	const selection = window.getSelection();
@@ -207,6 +210,7 @@ const focusNextOrAddOption = (id) => {
 	border-radius: var(--input-rounded);
 	font-size: var(--text-xs);
 	text-align: right;
+	white-space: nowrap;
 
 	&.is-invalid {
 		background: var(--color-red);

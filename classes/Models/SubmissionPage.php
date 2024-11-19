@@ -113,6 +113,28 @@ class SubmissionPage extends BasePage
 	}
 
 	/**
+	 * Returns the static or dynamic value of a dynamic field
+	 */
+	public function valueForDynamicField(Field $field): Field|null
+	{
+		$field = $field->toObject();
+		// type: 'static' or 'dynamic'
+		// field: null or the field id
+		// value: null or the value
+
+		$type = $field->type()->value();
+		if ($type === 'dynamic' && $field->field()->isNotEmpty()) {
+			return $this->valueForId($field->field()->value());
+		}
+
+		if ($type === 'static' && $field->value()->isNotEmpty()) {
+			return $field->value();
+		}
+
+		return null;
+	}
+
+	/**
 	 * Returns the value of a field in the submission content by its key
 	 */
 	public function valueFor(string $key): Field|null

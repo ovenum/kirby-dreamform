@@ -15,17 +15,23 @@ trait HasCache
 	/**
 	 * Get/set a value for the performer cache
 	 */
-	protected static function cache(string $key, callable $callback, int $minutes = 10): mixed
+	protected static function cache(string|array $key, callable $callback, int $minutes = 10): mixed
 	{
 		if (!($cache = static::cacheInstance())) {
 			return $callback();
 		}
 
+		$key = is_array($key) ? implode('_', $key) : $key;
 		$key = static::type() . '.' . $key;
 		$value = $cache->get($key);
 		if ($value === null) {
-			$value = $callback();
-			$cache->set($key, $value, $minutes);
+			try {
+				$value = $callback();
+				$cache->set($key, $value, $minutes);
+			} catch (\Throwable $e) {
+				$cache->remove($key);
+				return null;
+			}
 		}
 
 		return $value;

@@ -11,10 +11,11 @@
  */
 
 use Kirby\Toolkit\A;
+use Kirby\Toolkit\Str;
 
 $type ??= 'checkbox';
 
-$previousValue = $form->valueFor($block->key())?->value() ?? [];
+$previousValue = Str::split($form->valueFor($block->key())?->value(), ',') ?? [];
 if (!is_array($previousValue)) {
 	$previousValue = [$previousValue];
 }
@@ -30,7 +31,7 @@ if ($block->label()->isNotEmpty()) {
 	<div <?= attr($attr[$type]['row'] ?? []) ?>>
 		<input <?= attr(A::merge($attr['input'], [
 			'type' => $type,
-			'id' => $form->elementId("{$block->id()}/{$option->indexOf()}"),
+			'id' => $form->elementId("{$block->id()}-{$option->indexOf()}"),
 			'name' => $block->key() . ($type === 'checkbox' ? '[]' : null),
 			'value' => $option->value(),
 			'checked' => A::has($previousValue, $option->value()),

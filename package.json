@@ -6,9 +6,9 @@
 		"build": "kirbyup src/index.js"
 	},
 	"devDependencies": {
-		"kirbyup": "^3.1.6",
+		"kirbyup": "^3.2.0",
 		"mjml": "^4.15.3",
-		"sass": "^1.77.6"
+		"sass": "^1.81.0"
 	},
 	"dependencies": {
 		"kirbyuse": "^0.4.1"

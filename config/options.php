@@ -91,6 +91,9 @@ return [
 		'mailchimp' => [
 			'apiKey' => null // Mailchimp API key
 		],
+		'loops' => [
+			'apiKey' => null // Loops API key
+		],
 		'brevo' => [
 			'apiKey' => null // Mailchimp API key
 		],

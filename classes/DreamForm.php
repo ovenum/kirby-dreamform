@@ -2,9 +2,11 @@
 
 namespace tobimori\DreamForm;
 
+use Closure;
 use Kirby\Cms\App;
 use Kirby\Cms\Block;
 use Kirby\Cms\Page;
+use Kirby\Toolkit\A;
 use Kirby\Toolkit\Str;
 use tobimori\DreamForm\Actions\Action;
 use tobimori\DreamForm\Fields\Field;
@@ -282,5 +284,31 @@ final class DreamForm
 		}
 
 		return $option;
+	}
+
+	/**
+	 * Simple request cache
+	 */
+	private static array $requestCache = [];
+
+	/**
+	 * Simple request cache
+	 * https://github.com/bnomei/kirby3-lapse/blob/master/classes/LapseStatic.php
+	 */
+	public static function requestCache(string|array $key, Closure $closure)
+	{
+		if (is_array($key)) {
+			$key = implode('-', $key);
+		}
+
+		if ($value = A::get(static::$requestCache, $key, null)) {
+			return $value;
+		}
+
+		if (!is_string($closure) && is_callable($closure)) {
+			static::$requestCache[$key] = $closure();
+		}
+
+		return static::$requestCache[$key];
 	}
 }

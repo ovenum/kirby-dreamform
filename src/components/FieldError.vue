@@ -24,6 +24,8 @@ const emit = defineEmits(["update"]);
 .df-field-error {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	row-gap: var(--spacing-1);
 	color: var(--color-black);
 	font-size: var(--text-xs);
 	color: var(--color-gray-900);

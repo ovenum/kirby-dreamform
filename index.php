@@ -27,6 +27,7 @@ DreamForm::register(
 	\tobimori\DreamForm\Actions\ButtondownAction::class,
 	\tobimori\DreamForm\Actions\BrevoAction::class,
 	\tobimori\DreamForm\Actions\MailchimpAction::class,
+	\tobimori\DreamForm\Actions\LoopsAction::class,
 	\tobimori\DreamForm\Actions\PlausibleAction::class,
 	\tobimori\DreamForm\Fields\ButtonField::class,
 	\tobimori\DreamForm\Fields\TextField::class,
@@ -125,7 +126,7 @@ App::plugin('tobimori/dreamform', [
 	// get all files from /translations and register them as language files
 	'translations' => A::keyBy(
 		A::map(
-			Dir::read(__DIR__ . '/translations'),
+			Dir::files(__DIR__ . '/translations'),
 			function ($file) {
 				$translations = [];
 				foreach (Json::read(__DIR__ . '/translations/' . $file) as $key => $value) {
