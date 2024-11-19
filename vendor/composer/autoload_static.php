@@ -41,6 +41,7 @@ class ComposerStaticInit99ea25880654549400db6165b3f448d9
         'tobimori\\DreamForm\\Actions\\ConditionalAction' => __DIR__ . '/../..' . '/classes/Actions/ConditionalAction.php',
         'tobimori\\DreamForm\\Actions\\DiscordWebhookAction' => __DIR__ . '/../..' . '/classes/Actions/DiscordWebhookAction.php',
         'tobimori\\DreamForm\\Actions\\EmailAction' => __DIR__ . '/../..' . '/classes/Actions/EmailAction.php',
+        'tobimori\\DreamForm\\Actions\\LoopsAction' => __DIR__ . '/../..' . '/classes/Actions/LoopsAction.php',
         'tobimori\\DreamForm\\Actions\\MailchimpAction' => __DIR__ . '/../..' . '/classes/Actions/MailchimpAction.php',
         'tobimori\\DreamForm\\Actions\\PlausibleAction' => __DIR__ . '/../..' . '/classes/Actions/PlausibleAction.php',
         'tobimori\\DreamForm\\Actions\\RedirectAction' => __DIR__ . '/../..' . '/classes/Actions/RedirectAction.php',

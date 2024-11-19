@@ -18,6 +18,7 @@ return array(
     'tobimori\\DreamForm\\Actions\\ConditionalAction' => $baseDir . '/classes/Actions/ConditionalAction.php',
     'tobimori\\DreamForm\\Actions\\DiscordWebhookAction' => $baseDir . '/classes/Actions/DiscordWebhookAction.php',
     'tobimori\\DreamForm\\Actions\\EmailAction' => $baseDir . '/classes/Actions/EmailAction.php',
+    'tobimori\\DreamForm\\Actions\\LoopsAction' => $baseDir . '/classes/Actions/LoopsAction.php',
     'tobimori\\DreamForm\\Actions\\MailchimpAction' => $baseDir . '/classes/Actions/MailchimpAction.php',
     'tobimori\\DreamForm\\Actions\\PlausibleAction' => $baseDir . '/classes/Actions/PlausibleAction.php',
     'tobimori\\DreamForm\\Actions\\RedirectAction' => $baseDir . '/classes/Actions/RedirectAction.php',
