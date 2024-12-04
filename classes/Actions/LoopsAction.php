@@ -38,9 +38,14 @@ class LoopsAction extends Action
 						'subscribed'	=> [
 							'label' => t('dreamform.actions.loops.subscribed.label'),
 							'help' => t('dreamform.actions.loops.subscribed.help'),
-							'type' => 'toggle',
-							'default' => true,
+							'type' => 'toggles',
+							'default' => '',
 							'width' => '1/3',
+							'options' => [
+								'' => t('dreamform.actions.loops.subscribed.unset'),
+								'true' => t('dreamform.actions.loops.subscribed.yes'),
+								'false' => t('dreamform.actions.loops.subscribed.no'),
+							]
 						],
 						'fields' => [
 							'label' => t('dreamform.actions.loops.fields.label'),
@@ -95,7 +100,7 @@ class LoopsAction extends Action
 		// subscribe or update the user
 		$request = static::request('PUT', "/contacts/update", array_merge([
 			'email' => $email,
-			'subscribed' => $this->block()->subscribed()->toBool() ? true : null,
+			'subscribed' => $this->block()->subscribed()->toBool() ?? null,
 			'mailingLists' => $mailingLists
 		], $values));
 
