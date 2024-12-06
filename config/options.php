@@ -108,8 +108,8 @@ return [
 			]
 		],
 		'plausible' => [
-			'domain' => 'piqy.de',
-			'apiUrl' => 'https://plausible.moeritz.io/api'
+			'domain' => null,
+			'apiUrl' => 'https://plausible.io/api'
 		]
 	],
 	'integrations' => [
