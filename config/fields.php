@@ -1,7 +1,6 @@
 <?php
 
 use Kirby\Data\Data;
-use Kirby\Data\Yaml;
 use Kirby\Exception\InvalidArgumentException;
 use Kirby\Toolkit\A;
 use Kirby\Toolkit\Str;
@@ -15,12 +14,12 @@ return [
 			'fields' => null,
 
 			// reload when the following field changes
-			'sync' => function (string $sync = null) {
+			'sync' => function (string|null $sync = null) {
 				return $sync;
 			},
 
 			// fetch field setup from the API
-			'api' => function (string $api = null) {
+			'api' => function (string|null $api = null) {
 				return $api;
 			}
 		]
@@ -32,12 +31,12 @@ return [
 			'placeholder' => null,
 			'icon' => null,
 
-			'limitType' => function (string|array $limitType = null): array|null {
+			'limitType' => function (string|array|null $limitType = null): array|null {
 				if (!is_array($limitType)) {
 					$limitType = [$limitType];
 				}
 
-				$limitType = array_filter($limitType, fn ($type) => $type !== null);
+				$limitType = array_filter($limitType, fn($type) => $type !== null);
 				if (empty($limitType)) {
 					return null;
 				}

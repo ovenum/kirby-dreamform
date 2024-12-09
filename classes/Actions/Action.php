@@ -20,9 +20,7 @@ abstract class Action extends Performer
 	 * Create a new Action instance.
 	 * @internal
 	 */
-	public function __construct(private Block $block, private SubmissionPage $submission, private bool $force = false)
-	{
-	}
+	public function __construct(private Block $block, private SubmissionPage $submission, private bool $force = false) {}
 
 	/**
 	 * Returns the submission the performer is being run on
@@ -67,7 +65,7 @@ abstract class Action extends Performer
 	/**
 	 * Create an action log entry
 	 */
-	protected function log(array $data, string $type = null, string $icon = null, string $title = null): SubmissionLogEntry
+	protected function log(array $data, string|null $type = null, string|null $icon = null, string|null $title = null): SubmissionLogEntry
 	{
 		return $this->submission()->addLogEntry($data, $type, $icon, $title);
 	}
@@ -77,7 +75,7 @@ abstract class Action extends Performer
 	 *
 	 * The form will be shown as failed to the user and the error message will be displayed
 	 */
-	protected function cancel(string $message = null, bool $public = false, array|bool $log = null): void
+	protected function cancel(string|null $message = null, bool $public = false, array|bool|null $log = null): void
 	{
 		throw new PerformerException(
 			performer: $this,
@@ -94,7 +92,7 @@ abstract class Action extends Performer
 	 *
 	 * The form will be shown as successful to the user, except if debug mode is enabled
 	 */
-	protected function silentCancel(string $message = null, array|bool $log = null): void
+	protected function silentCancel(string|null $message = null, array|bool|null $log = null): void
 	{
 		throw new PerformerException(
 			performer: $this,
