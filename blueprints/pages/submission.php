@@ -25,7 +25,7 @@ return function () {
 		],
 		'image' => [
 			'icon' => 'archive',
-			'back' => '#fafafa',
+			'back' => 'transparent',
 			'query' => 'page.gravatar()'
 		],
 		'options' => [

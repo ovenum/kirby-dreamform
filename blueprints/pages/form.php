@@ -11,7 +11,7 @@ return function () {
 		'image' => [
 			'icon' => 'survey',
 			'query' => 'icon',
-			'back' => '#fafafa'
+			'back' => 'transparent'
 		],
 		'num' => 0,
 		'options' => [

@@ -8,6 +8,7 @@ use Kirby\Cms\Collection;
 use Kirby\Cms\Layouts;
 use Kirby\Cms\Page;
 use Kirby\Content\Field;
+use Kirby\Content\VersionId;
 use Kirby\Data\Json;
 use Kirby\Http\Query;
 use Kirby\Http\Response;
@@ -58,7 +59,7 @@ class FormPage extends BasePage
 			'hx-vals' => Json::encode(array_filter([
 				'dreamform:page' => Htmx::encrypt($page->uuid()->toString()),
 				'dreamform:attr' => Htmx::encrypt(Json::encode($attr))
-			], fn ($value) => $value !== null))
+			], fn($value) => $value !== null))
 		];
 
 		return $htmx;
@@ -147,7 +148,7 @@ class FormPage extends BasePage
 	/**
 	 * Returns the fields for a form
 	 */
-	public function fields(int $step = null): Collection
+	public function fields(int|null $step = null): Collection
 	{
 		if (isset($step) && ($step < 1 || $step > count($this->steps()))) {
 			throw new Exception("Step {$step} does not exist");
@@ -322,8 +323,11 @@ class FormPage extends BasePage
 	/**
 	 * Runs the form handling, or renders a 404 page
 	 */
-	public function render(array $data = [], $contentType = 'html'): string
-	{
+	public function render(
+		array $data = [],
+		$contentType = 'html',
+		VersionId|string|null $versionId = null
+	): string {
 		$kirby = App::instance();
 		$mode = DreamForm::option('mode', 'prg');
 
@@ -334,7 +338,7 @@ class FormPage extends BasePage
 			// if dreamform is used in API mode, return the submission state as JSON
 			if ($mode === 'api') {
 				$kirby->response()->code($submission->isSuccessful() ? 200 : 400);
-				return json_encode(A::merge(array_filter($submission->state()->toArray(), fn ($key) => A::has([
+				return json_encode(A::merge(array_filter($submission->state()->toArray(), fn($key) => A::has([
 					'success',
 					'step',
 					'redirect',
@@ -470,7 +474,7 @@ class FormPage extends BasePage
 	/**
 	 * Never cache the API response
 	 */
-	public function isCacheable(): bool
+	public function isCacheable(VersionId|null $versionId = null): bool
 	{
 		return false;
 	}
@@ -528,7 +532,7 @@ class FormPage extends BasePage
 	 * TOOD: remove in next major version -
 	 * @deprecated use dreamform-dynamic-field instead or DreamForm::currentPage()->fields()
 	 */
-	public static function getFields(string $filterByType = null): array
+	public static function getFields(string|null $filterByType = null): array
 	{
 		$page = DreamForm::currentPage();
 		if (!$page) {

@@ -8,7 +8,7 @@ return function () {
 		'image' => [
 			'icon' => 'survey',
 			'query' => 'icon',
-			'back' => '#fafafa'
+			'back' => 'transparent'
 		],
 		'options' => [
 			'create' => false,

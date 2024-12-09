@@ -5,6 +5,7 @@ namespace tobimori\DreamForm\Models;
 use Kirby\Cms\App;
 use Kirby\Cms\Page;
 use Kirby\Content\Field;
+use Kirby\Content\VersionId;
 
 /**
  * The base page class for all pages in the plugin.
@@ -23,8 +24,11 @@ class BasePage extends Page
 	/**
 	 * Render a 404 page to lock pages
 	 */
-	public function render(array $data = [], $contentType = 'html'): string
-	{
+	public function render(
+		array $data = [],
+		$contentType = 'html',
+		VersionId|string|null $versionId = null
+	): string {
 		kirby()->response()->code(404);
 		return $this->site()->errorPage()->render();
 	}
