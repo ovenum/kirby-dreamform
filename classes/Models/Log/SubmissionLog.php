@@ -16,7 +16,7 @@ class SubmissionLog extends Items
 	/**
 	 * Convert the items to an array
 	 */
-	public function toArray(Closure $map = null): array
+	public function toArray(Closure|null $map = null): array
 	{
 		return array_values(A::sort(
 			parent::toArray($map),

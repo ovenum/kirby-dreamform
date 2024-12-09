@@ -160,6 +160,7 @@ const focus = () => el.value.focus();
 
 	span[contenteditable] {
 		outline: none;
+		max-width: max-content;
 
 		&:empty {
 			position: absolute;

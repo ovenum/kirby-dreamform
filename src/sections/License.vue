@@ -87,6 +87,7 @@ loadSection();
 	padding: var(--spacing-1) var(--spacing-1);
 	border-radius: var(--rounded-lg);
 	justify-content: space-between;
+	color: var(--color-black);
 
 	&,
 	&-wrapper {

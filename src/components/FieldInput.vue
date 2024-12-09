@@ -29,7 +29,7 @@ const emit = defineEmits(["update"]);
 	position: relative;
 	color: var(--color-gray-700);
 	box-shadow: var(--shadow-sm);
-	outline: 1px solid var(--color-gray-200);
+	outline: 1px solid var(--input-color-border);
 	padding: 0.65rem var(--spacing-2);
 	border-radius: var(--input-rounded);
 	font-variant-numeric: tabular-nums;

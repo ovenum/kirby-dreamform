@@ -167,7 +167,7 @@ class SubmissionPage extends BasePage
 	/**
 	 * Returns the error message for a field in the submission state
 	 */
-	public function errorFor(string $key = null, FormPage $form = null): string|null
+	public function errorFor(string|null $key = null, FormPage|null $form = null): string|null
 	{
 		if (!$form?->is($this->form())) {
 			return null;
@@ -185,7 +185,7 @@ class SubmissionPage extends BasePage
 	/**
 	 * Sets an error in the submission state
 	 */
-	public function setError(string $message, string $field = null): static
+	public function setError(string $message, string|null $field = null): static
 	{
 		$state = $this->state()->toArray();
 		$state['success'] = false;
@@ -201,7 +201,7 @@ class SubmissionPage extends BasePage
 	/**
 	 * Removes an error from the submission state
 	 */
-	public function removeError(string $field = null): static
+	public function removeError(string|null $field = null): static
 	{
 		$state = $this->state()->toArray();
 		if ($field) {
@@ -260,7 +260,7 @@ class SubmissionPage extends BasePage
 	/**
 	 * Create actions from the form's content
 	 */
-	public function createActions(Blocks $blocks = null, bool $force = false): Collection
+	public function createActions(Blocks|null $blocks = null, bool $force = false): Collection
 	{
 		$blocks ??= $this->form()->content()->get('actions')->toBlocks();
 
@@ -274,7 +274,7 @@ class SubmissionPage extends BasePage
 			}
 		}
 
-		return new Collection($actions, []);
+		return new Collection($actions);
 	}
 
 	/**
@@ -400,7 +400,7 @@ class SubmissionPage extends BasePage
 		// elevate permissions to save the submission
 		return App::instance()->impersonate(
 			'kirby',
-			fn () => $this->save($this->content()->toArray(), App::instance()?->languages()?->default()?->code() ?? null)
+			fn() => $this->save($this->content()->toArray(), App::instance()?->languages()?->default()?->code() ?? null)
 		);
 	}
 
@@ -438,7 +438,7 @@ class SubmissionPage extends BasePage
 		$this->content = $this->content($defaultLanguage)->update($input);
 
 		if ($this->exists()) {
-			return App::instance()->impersonate('kirby', fn () => parent::update($input, $defaultLanguage, $validate));
+			return App::instance()->impersonate('kirby', fn() => parent::update($input, $defaultLanguage, $validate));
 		}
 
 		return $this;

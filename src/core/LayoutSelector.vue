@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 .df-layout-selector-page {
 	grid-column: span 12;
-	background: var(--color-gray-200);
+	background: var(--color-back);
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -58,5 +58,6 @@ export default {
 	justify-content: center;
 	gap: var(--spacing-2);
 	color: var(--color-text-dimmed);
+	font-size: 0.9em;
 }
 </style>

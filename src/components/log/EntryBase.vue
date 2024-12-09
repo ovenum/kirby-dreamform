@@ -47,13 +47,13 @@ const date = formatDate(props.timestamp);
 	}
 
 	&-heading {
-		color: var(--color-gray-700);
+		color: var(--color-text-dimmed);
 		gap: var(--spacing-1);
 		line-height: var(--leading-normal);
 
 		strong {
 			font-weight: 400;
-			color: var(--color-black);
+			color: var(--color-text);
 		}
 	}
 
@@ -63,7 +63,7 @@ const date = formatDate(props.timestamp);
 
 	&-line {
 		width: 0.0625rem;
-		background: var(--color-gray-400);
+		background: var(--input-color-border);
 		position: absolute;
 		inset: 1.625rem auto -1.125rem 0.5rem;
 	}
@@ -73,7 +73,7 @@ const date = formatDate(props.timestamp);
 		z-index: 2;
 		inset-block-start: 0.125rem;
 		inset-inline-start: 0;
-		color: var(--color-gray-700);
+		color: var(--color-text-dimmed);
 	}
 
 	&-content {

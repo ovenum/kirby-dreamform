@@ -1,6 +1,5 @@
 <script setup>
 import Editable from "@/components/Editable.vue";
-import { onMounted } from "kirbyuse";
 
 const props = defineProps({
 	content: Object,
@@ -66,7 +65,7 @@ const update = (value) => emit("update", { ...props.content, ...value });
 	align-items: center;
 
 	&:hover .df-field-required:not(.is-active) {
-		color: var(--color-gray-500);
+		color: var(--color-text-dimmed);
 	}
 
 	.df-field-label.is-invalid {
@@ -75,8 +74,8 @@ const update = (value) => emit("update", { ...props.content, ...value });
 }
 
 .df-field-key {
-	color: var(--color-gray-700);
-	background: var(--color-gray-200);
+	color: var(--color-text-dimmed);
+	background: var(--menu-color-back);
 	padding: 0.125rem var(--spacing-1);
 	border-radius: var(--input-rounded);
 	font-size: var(--text-xs);
@@ -93,7 +92,7 @@ const update = (value) => emit("update", { ...props.content, ...value });
 
 .df-field-required {
 	padding: 0.125rem;
-	color: var(--color-white);
+	color: var(--block-color-back);
 	transition: color 0.15s;
 	margin-left: var(--spacing-1);
 

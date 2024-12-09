@@ -41,7 +41,7 @@ const toggleSpam = () => {
 					loadSection();
 				},
 			},
-		}
+		},
 	);
 };
 
@@ -105,7 +105,7 @@ loadSection();
 					$t(
 						isSpam
 							? "dreamform.submission.reportAsHam.button"
-							: "dreamform.submission.reportAsSpam.button"
+							: "dreamform.submission.reportAsSpam.button",
 					)
 				}}
 			</k-button>
@@ -140,7 +140,7 @@ loadSection();
 
 <style lang="scss">
 .df-submission-section {
-	background: var(--color-white);
+	background: var(--item-color-back);
 	border-radius: var(--rounded);
 	box-shadow: var(--shadow);
 	line-height: var(--leading-normal);

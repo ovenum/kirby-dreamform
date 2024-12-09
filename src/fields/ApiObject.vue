@@ -7,7 +7,6 @@ import {
 	before,
 	disabled,
 	icon,
-	invalid,
 	label,
 	name,
 	type,
@@ -34,7 +33,6 @@ const props = defineProps({
 	...before,
 	...disabled,
 	...icon,
-	...invalid,
 	...label,
 	...name,
 	...type,
@@ -51,7 +49,7 @@ const loadRemoteFields = async () => {
 	const response = await api.get(
 		`/dreamform/object/mailchimp/${props.endpoints.model}/${
 			props.formData[props.sync]
-		}`
+		}`,
 	);
 
 	fields.value = Object.fromEntries(
@@ -59,13 +57,13 @@ const loadRemoteFields = async () => {
 			key,
 			// hack to not show the "static/dynamic" toggles in the field mapping object preview
 			{ ...value, saveable: key === "tags" ? false : value.saveable },
-		])
+		]),
 	);
 };
 
 watch(
 	() => props.formData[props.sync],
-	() => loadRemoteFields()
+	() => loadRemoteFields(),
 );
 
 loadRemoteFields();

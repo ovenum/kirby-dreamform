@@ -26,14 +26,13 @@ const emit = defineEmits(["update"]);
 	align-items: center;
 	flex-wrap: wrap;
 	row-gap: var(--spacing-1);
-	color: var(--color-black);
+	color: var(--color-text);
 	font-size: var(--text-xs);
-	color: var(--color-gray-900);
 	margin-block-start: var(--spacing-3);
 
 	& > span:not(.df-editable) {
 		display: block;
-		color: var(--color-gray-600);
+		color: var(--color-text-dimmed);
 		margin-right: var(--spacing-1);
 	}
 }

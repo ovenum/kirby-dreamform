@@ -92,7 +92,6 @@ export default {
 	.k-layout-toolbar {
 		flex-direction: row;
 		width: calc(2 * var(--layout-toolbar-width));
-		background: var(--color-white);
 	}
 }
 
@@ -103,8 +102,8 @@ export default {
 	padding: 0 var(--spacing-2);
 	width: 100%;
 	padding-right: var(--layout-toolbar-width);
-	background: var(--color-gray-100);
-	--icon-color: var(--color-gray-600);
+	background: var(--block-color-back);
+	--icon-color: var(--color-icon);
 	color: var(--color-text-dimmed);
 	font-weight: var(--font-semi);
 	gap: var(--spacing-2);
