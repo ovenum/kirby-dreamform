@@ -19,7 +19,7 @@ trait HasSubmissionLog
 		);
 	}
 
-	public function addLogEntry(array $data, string $type = null, string $icon = null, string $title = null): SubmissionLogEntry
+	public function addLogEntry(array $data, ?string $type = null, ?string $icon = null, ?string $title = null): SubmissionLogEntry
 	{
 		$item = new SubmissionLogEntry([
 			'parent' => $this,
